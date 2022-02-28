@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { OrbitControls } from '../../node_modules/three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls';
 
 // Setup
 
@@ -20,9 +20,9 @@ const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
 window.addEventListener("keydown", (e) => {
-  renderer.setAnimationLoop(animate);
 })
 
+renderer.setAnimationLoop(animate);
 window.addEventListener("pointermove", onPointerMove);
 
 // Add button
@@ -31,11 +31,14 @@ document.querySelector('.add').addEventListener("click", createBox)
 
 // Lighting
 
-const lightAmb = new THREE.AmbientLight( 0x070707 ); 
-const lightDir = new THREE.DirectionalLight( 0xffffff ); 
-lightDir.position.set(0.91, 0.33, 0.74);
+const lightAmb = new THREE.AmbientLight( 0x0f0f0f ); 
+const lightDir1 = new THREE.DirectionalLight( 0xf6f6f6 ); 
+const lightDir2 = new THREE.DirectionalLight( 0xf6f6f6 ); 
+lightDir1.position.set(0.91, 0.33, 0.74);
+lightDir2.position.set(0, 0, 1);
 
-scene.add(lightDir);
+scene.add(lightDir1);
+// scene.add(lightDir2);
 scene.add(lightAmb);
 
 // Shapes
